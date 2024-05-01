@@ -86,13 +86,13 @@ enum
     TRAP_IN = 0x23,              /* get character from keyboard, echoed onto the terminal */
     TRAP_PUTSP = 0x24,           /* output a byte string */
     TRAP_HALT = 0x25,            /* halt the program */
-    TRAP_REG = 0x27,             // print registers to console
-    TRAP_CHAT = 0x28,            // post string to chat
-    TRAP_GETP = 0x29,            // get player tile
-    TRAP_SETP = 0x2A,            // set player tile
-    TRAP_GETB = 0x2B,            // get block type
-    TRAP_SETB = 0x2C,            // set block type
-    TRAP_GETH = 0x2D,            // get height
+    TRAP_REG = 0x36,             // print registers to console
+    TRAP_CHAT = 0x30,            // post string to chat
+    TRAP_GETP = 0x31,            // get player tile
+    TRAP_SETP = 0x32,            // set player tile
+    TRAP_GETB = 0x33,            // get block type
+    TRAP_SETB = 0x34,            // set block type
+    TRAP_GETH = 0x35,            // get height
     
 };
 
