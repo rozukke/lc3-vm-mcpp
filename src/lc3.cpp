@@ -89,10 +89,10 @@ enum
     TRAP_REG = 0x27,             // print registers to console
     TRAP_CHAT = 0x28,            // post string to chat
     TRAP_GETP = 0x29,            // get player tile
-    TRAP_SETP = 0x30,            // set player tile
-    TRAP_GETB = 0x31,            // get block type
-    TRAP_SETB = 0x32,            // set block type
-    TRAP_GETH = 0x33,            // get height
+    TRAP_SETP = 0x2A,            // set player tile
+    TRAP_GETB = 0x2B,            // get block type
+    TRAP_SETB = 0x2C,            // set block type
+    TRAP_GETH = 0x2D,            // get height
     
 };
 
