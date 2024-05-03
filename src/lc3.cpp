@@ -502,6 +502,7 @@ int main(int argc, const char* argv[])
     {
         // Version info
         printf("lc3-vm-mcpp version 'legacy-fix'\n");
+        exit(0);
     }
     if (argc == 3) 
     {
