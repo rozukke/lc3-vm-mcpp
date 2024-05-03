@@ -1,4 +1,4 @@
-*.obj
 *.sym
 *.hex
 *.bin
+*.lst
