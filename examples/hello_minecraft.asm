@@ -1,6 +1,6 @@
 .ORIG x3000
 LEA R0, HW
-CHAT
+TRAP x30
 HALT
 HW .STRINGZ "Hello, Minecraft!"
 .END
