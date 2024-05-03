@@ -32,6 +32,7 @@ enum
     FLAG_SIG = 'd', // signed
     FLAG_HEX = 'x', // hex
     FLAG_BIN = 'b', // binary
+    FLAG_SUP = 's'  // suppress run info
 };
 enum
 {
@@ -100,6 +101,10 @@ enum
 uint16_t memory[MEMORY_MAX];  /* 65536 locations */
 uint16_t reg[R_COUNT];
 uint16_t flag;
+
+// tracking
+uint32_t inst_count = 0;
+uint32_t api_calls = 0;
 
 struct termios original_tio;
 
@@ -457,6 +462,8 @@ void ins(uint16_t instr)
                     unsigned_to_signed(reg[2])
                 );
             }
+
+            api_calls ++;
         }
     }
     //if (0x0100 & opbit) { } // RTI
@@ -516,8 +523,17 @@ int main(int argc, const char* argv[])
         uint16_t instr = mem_read(reg[R_PC]++);
         uint16_t op = instr >> 12;
         op_table[op](instr);
+        inst_count++;
     }
     restore_input_buffering();
+
+    if (!flag_set(FLAG_SUP)) {
+        printf("\n---\nRUN SUMMARY {%s}\n", img);
+        printf(" $ Total instructions: %d\n", inst_count);
+        printf(" $ Calls to mcpp API:  %d\n", api_calls);
+        printf("---\n");
+    }
+    
 
     if (mc != NULL)
     {
