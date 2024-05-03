@@ -498,6 +498,11 @@ int main(int argc, const char* argv[])
         printf("  -b\tas binary\n");
         exit(0);
     }
+    if (strcmp(argv[1], "-v") == 0) 
+    {
+        // Version info
+        printf("lc3-vm-mcpp version 'legacy-fix'\n");
+    }
     if (argc == 3) 
     {
         // Process flags
