@@ -510,7 +510,14 @@ int main(int argc, const char* argv[])
         flag = argv[1][1];
         img = argv[2];
     }
-    
+    const char *ext = strrchr(img, '.');
+    if (!ext) {
+        printf("No file extension.\n");
+        exit(1);
+    } else if (strcmp(ext + 1, "obj") != 0) {
+        printf("Not an .obj file.\n");
+        exit(1);
+    }
     if (!read_image(img))
     {
         printf("Failed to load image: %s\n", img);
