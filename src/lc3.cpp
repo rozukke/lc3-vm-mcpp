@@ -374,7 +374,7 @@ template <unsigned op> void ins(uint16_t instr) {
                                      unsigned_to_signed(reg[2]));
                 mc->setBlock(pos, reg[3]);
             } else if (trapvect == TRAP_GETH) {
-                reg[1] = (*mc).getHeight(unsigned_to_signed(reg[0]), unsigned_to_signed(reg[2]));
+                reg[1] = (*mc).getHeight({unsigned_to_signed(reg[0]), unsigned_to_signed(reg[2])});
             }
 
             api_calls++;
